@@ -1,0 +1,23 @@
+{
+    "name": "nickel715/websiteMonitoring",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas Hohm",
+            "email": "nickel7152@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zendframework/zend-http": "^2.5",
+        "symfony/console": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebsiteMonitoring\\": "src/"
+        }
+    },
+    "bin": ["console"]
+}
