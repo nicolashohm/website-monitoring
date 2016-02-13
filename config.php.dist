@@ -19,7 +19,13 @@ return [
                 'sitemap-blacklist' => [
                     'blacklisted' => $privatePages
                 ],
+                'text-or-html-present' => [
+                    [
+                        'page' => '/',
+                        'text' => 'copyright',
+                    ],
+                ],
             ],
-        ]
+        ],
     ],
 ];
