@@ -22,7 +22,7 @@ interface CheckerInterface
      * @param WebsiteConfig $config
      * @param array $checkerConfig
      *
-     * @return mixed
+     * @return string|array
      */
     public function parse(WebsiteConfig $config, array $checkerConfig = []);
 }

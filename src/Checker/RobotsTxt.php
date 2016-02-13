@@ -4,7 +4,7 @@ namespace WebsiteMonitoring\Checker;
 
 use WebsiteMonitoring\WebsiteConfig;
 
-class PrivacyPage implements CheckerInterface
+class RobotsTxt implements CheckerInterface
 {
     public function check(WebsiteConfig $config, array $checkerConfig = [])
     {

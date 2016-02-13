@@ -1,15 +1,24 @@
 <?php
 
+$privatePages = [
+    '/imprint/',
+    '/privacy/',
+];
+
 return [
     'websites' => [
         [
             'url'     => '',
             'checker' => [
-                'imprint-page'      => [],
-                'privacy-page'      => [
-                    'path' => '/privacy/',
+                'page-exists'       => [
+                    'pages' => $privatePages
                 ],
-                'sitemap-blacklist' => [],
+                'robots-txt'        => [
+                    'disallows' => $privatePages,
+                ],
+                'sitemap-blacklist' => [
+                    'blacklisted' => $privatePages
+                ],
             ],
         ]
     ],

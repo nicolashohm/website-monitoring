@@ -4,8 +4,8 @@
 require_once 'vendor/autoload.php';
 
 use Interop\Container\ContainerInterface;
-use WebsiteMonitoring\Checker\ImprintPage;
-use WebsiteMonitoring\Checker\PrivacyPage;
+use WebsiteMonitoring\Checker\PageExists;
+use WebsiteMonitoring\Checker\RobotsTxt;
 use WebsiteMonitoring\Checker\SitemapBlacklist;
 use WebsiteMonitoring\CheckerPluginManager;
 use WebsiteMonitoring\ConsoleCommand\CheckCommand;
@@ -14,11 +14,11 @@ use WebsiteMonitoring\ConsoleCommand\ParseCommand;
 
 $serviceManager = new \Zend\ServiceManager\ServiceManager();
 $serviceManager->addAbstractFactory(CommandFactory::class);
-$serviceManager->setFactory(CheckerPluginManager::class, function(ContainerInterface $container) {
+$serviceManager->setFactory(CheckerPluginManager::class, function (ContainerInterface $container) {
     return new CheckerPluginManager($container, [
         'invokables' => [
-            'imprint-page'      => ImprintPage::class,
-            'privacy-page'      => PrivacyPage::class,
+            'page-exists'       => PageExists::class,
+            'robots-txt'        => RobotsTxt::class,
             'sitemap-blacklist' => SitemapBlacklist::class,
         ],
     ]);

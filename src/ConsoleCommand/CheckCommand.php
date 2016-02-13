@@ -4,6 +4,9 @@ namespace WebsiteMonitoring\ConsoleCommand;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use WebsiteMonitoring\Checker\CheckerInterface;
+use WebsiteMonitoring\ConfigParser;
+use WebsiteMonitoring\WebsiteConfig;
 
 class CheckCommand extends AbstractCommand
 {
@@ -17,6 +20,18 @@ class CheckCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // TODO
+        $statusCode = 0;
+        $config = ConfigParser::createFromConfig(require 'config.php');
+        /** @var WebsiteConfig $website */
+        foreach ($config as $website) {
+            foreach ($website->getChecker() as $checkerName => $checkerConfig) {
+                /** @var CheckerInterface $checker */
+                $checker = $this->checkerPluginManager->get($checkerName);
+                $result = $checker->check($website, $checkerConfig);
+                !empty($result) && $statusCode = 1;
+                $output->writeln($result);
+            }
+        }
+        return $statusCode;
     }
 }
