@@ -2,7 +2,17 @@
 
 namespace WebsiteMonitoring\Checker;
 
-class PrivacyPage
-{
+use WebsiteMonitoring\WebsiteConfig;
 
+class PrivacyPage implements CheckerInterface
+{
+    public function check(WebsiteConfig $config, array $checkerConfig = [])
+    {
+
+    }
+
+    public function parse(WebsiteConfig $config, array $checkerConfig = [])
+    {
+
+    }
 }

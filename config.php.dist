@@ -2,13 +2,15 @@
 
 return [
     'websites' => [
-        'url' => '',
-        'checker' => [
-            'imprint-page' => [],
-            'privacy-page' => [
-                'path' => '/privacy/',
+        [
+            'url'     => '',
+            'checker' => [
+                'imprint-page'      => [],
+                'privacy-page'      => [
+                    'path' => '/privacy/',
+                ],
+                'sitemap-blacklist' => [],
             ],
-            'sitemap-blacklist' => [],
-        ],
+        ]
     ],
 ];
