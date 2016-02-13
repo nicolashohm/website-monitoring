@@ -1,0 +1,12 @@
+<?php
+
+return [
+    'websites' => [
+        'url' => '',
+        'checker' => [
+            'imprint-page',
+            'privacy-page',
+            'sitemap-blacklist',
+        ],
+    ],
+];

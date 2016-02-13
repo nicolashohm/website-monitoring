@@ -1,3 +1,15 @@
 #!/usr/bin/env php
+<?php
 
-// TODO
+require_once 'vendor/autoload.php';
+
+use WebsiteMonitoring\ConsoleCommand\CheckCommand;
+use WebsiteMonitoring\ConsoleCommand\ParseCommand;
+
+$serviceManager = new \Zend\ServiceManager\ServiceManager();
+$serviceManager->setInvokableClass(ParseCommand::class);
+$serviceManager->setInvokableClass(CheckCommand::class);
+
+$app = new \Symfony\Component\Console\Application('Website monitoring', '1.0.0');
+$app->addCommands([$serviceManager->get(ParseCommand::class), $serviceManager->get(CheckCommand::class)]);
+$app->run();

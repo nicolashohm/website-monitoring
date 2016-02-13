@@ -7,3 +7,6 @@ Installation
 ============
 
     composer create-project nickel715/website-monitoring website-monitoring
+
+### Configuration
+
