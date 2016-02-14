@@ -12,7 +12,7 @@ interface CheckerInterface
      * @param WebsiteConfig $config
      * @param array $checkerConfig
      *
-     * @return mixed
+     * @return string|array String or array to output, if return is not empty we consider a failure occurs
      */
     public function check(WebsiteConfig $config, array $checkerConfig = []);
 
@@ -22,7 +22,7 @@ interface CheckerInterface
      * @param WebsiteConfig $config
      * @param array $checkerConfig
      *
-     * @return string|array
+     * @return string|array String or array to output
      */
     public function parse(WebsiteConfig $config, array $checkerConfig = []);
 }

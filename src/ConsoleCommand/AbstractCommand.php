@@ -3,6 +3,7 @@
 namespace WebsiteMonitoring\ConsoleCommand;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Output\OutputInterface;
 use WebsiteMonitoring\CheckerPluginManager;
 
 /**
@@ -14,5 +15,16 @@ class AbstractCommand extends Command
     {
         $this->checkerPluginManager = $checkerPluginManager;
         return $this;
+    }
+
+    /**
+     * @param OutputInterface $output
+     * @param $checkerName
+     */
+    protected function writeCheckerHeading(OutputInterface $output, $checkerName)
+    {
+        $output->writeln('');
+        $output->writeln('Checker: ' . $checkerName);
+        $output->writeln('');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace WebsiteMonitoring\ConsoleCommand;
 
+use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use WebsiteMonitoring\Checker\CheckerInterface;
@@ -28,8 +29,14 @@ class CheckCommand extends AbstractCommand
                 /** @var CheckerInterface $checker */
                 $checker = $this->checkerPluginManager->get($checkerName);
                 $result = $checker->check($website, $checkerConfig);
-                !empty($result) && $statusCode = 1;
-                $output->writeln($result);
+                if (!empty($result)) {
+                    $statusCode = 1;
+                    $this->writeCheckerHeading($output, $checkerName);
+                    /** @var FormatterHelper $formatter */
+                    $formatter = $this->getHelper('formatter');
+                    $result = $formatter->formatBlock($result, 'error');
+                    $output->writeln($result);
+                }
             }
         }
         return $statusCode;
