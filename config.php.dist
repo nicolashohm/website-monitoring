@@ -10,20 +10,22 @@ return [
         [
             'url'     => '',
             'checker' => [
-                'page-exists'          => [
+                'page-exists'       => [
                     'pages' => $privatePages,
                 ],
-                'robots-txt'           => [
+                'robots-txt'        => [
                     'disallows' => $privatePages,
                 ],
-                'sitemap-blacklist'    => [
+                'sitemap-blacklist' => [
                     'path'      => 'sitemap.xml',
                     'blacklist' => $privatePages,
                 ],
-                'text-or-html-present' => [
+                'content'           => [
                     [
-                        'page' => '/',
-                        'text' => 'copyright',
+                        'page'             => '/',
+                        'text_present'     => 'copyright',
+                        'html_present'     => ['<h1>', '<h2>'],
+                        'text_not_present' => 'debug',
                     ],
                 ],
             ],

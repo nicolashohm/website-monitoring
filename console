@@ -4,6 +4,7 @@
 require_once 'vendor/autoload.php';
 
 use Interop\Container\ContainerInterface;
+use WebsiteMonitoring\Checker\Content;
 use WebsiteMonitoring\Checker\PageExists;
 use WebsiteMonitoring\Checker\RobotsTxt;
 use WebsiteMonitoring\Checker\SitemapBlacklist;
@@ -20,6 +21,7 @@ $serviceManager->setFactory(CheckerPluginManager::class, function (ContainerInte
             'page-exists'       => PageExists::class,
             'robots-txt'        => RobotsTxt::class,
             'sitemap-blacklist' => SitemapBlacklist::class,
+            'content'           => Content::class,
         ],
     ]);
 });
