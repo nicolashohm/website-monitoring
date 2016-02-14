@@ -10,14 +10,15 @@ return [
         [
             'url'     => '',
             'checker' => [
-                'page-exists'       => [
-                    'pages' => $privatePages
+                'page-exists'          => [
+                    'pages' => $privatePages,
                 ],
-                'robots-txt'        => [
+                'robots-txt'           => [
                     'disallows' => $privatePages,
                 ],
-                'sitemap-blacklist' => [
-                    'blacklisted' => $privatePages
+                'sitemap-blacklist'    => [
+                    'path'      => 'sitemap.xml',
+                    'blacklist' => $privatePages,
                 ],
                 'text-or-html-present' => [
                     [

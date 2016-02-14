@@ -6,7 +6,8 @@ periodically check the website for some things are present or not present like i
 Installation
 ============
 
-    composer create-project nickel715/website-monitoring website-monitoring
+    composer global require nickel715/website-monitoring
 
 ### Configuration
 
+Copy `config.php.dist` to `config.php`

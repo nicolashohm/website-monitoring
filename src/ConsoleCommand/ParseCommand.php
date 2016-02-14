@@ -23,7 +23,6 @@ class ParseCommand extends AbstractCommand
     {
         /** @var FormatterHelper $formatter */
         $formatter = $this->getHelper('formatter');
-
         $config = ConfigParser::createFromConfig(require 'config.php');
         /** @var WebsiteConfig $website */
         foreach ($config as $website) {
